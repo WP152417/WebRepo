@@ -1,0 +1,49 @@
+*{
+	font-family: NanumGothic;
+}
+#joinBtn{
+	margin-right:8px;
+}
+#loginBtn, #joinBtn{
+	color: white;
+	border: 1px solid white;
+}
+#loginBtn:hover, #joinBtn:hover{
+	color: #007bff;
+	background-color: white;
+}
+#articleTitle, h2{
+	padding: 3rem 0;
+}
+.container{
+	padding: 0 3rem 3rem 3rem;
+	border-left: 2px solid #ddd;
+	border-right: 2px solid #ddd
+}
+#navbar{
+	border-bottom: 2px solid #ddd;
+}
+.img-fluid{
+	width: 600px;
+	padding: 1rem 0;
+}
+#frontPage{
+	height: 400px;
+	text-align: center;
+	background-color: #868e96;
+}
+#frontTitle{
+	display: inline-block;
+	margin-top:200px;
+	color: white;
+}
+#frontArticle{
+	padding-top: 5rem;
+	text-align: center;
+}
+#article{
+	margin-top: 3rem;
+}
+#rad{
+	display: inline-block;
+}

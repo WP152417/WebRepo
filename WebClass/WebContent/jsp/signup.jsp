@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@page import="org.dimigo.vo.UserVO"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -11,23 +12,28 @@
 </head>
 <body>
 <div class="container">
-
-  <form id="signupForm" class="form-signin" action="" method="post">
+<%
+	String id = request.getParameter("id") == null ? "" : request.getParameter("id"); 
+	String pwd = request.getParameter("pwd") == null ? "" : request.getParameter("pwd");
+	String name = request.getParameter("name") == null ? "" : request.getParameter("name");
+	String nickname = request.getParameter("nickname") == null ? "" : request.getParameter("nickname");
+%>
+  <form id="signupForm" class="form-signin" action="/WebClass/signup" method="post">
     <h2 class="form-signin-heading">Please sign up</h2>
     
-    <label for="inputEmail" class="sr-only">Email address</label>
-    <input type="email" name="id" id="inputEmail" class="form-control" placeholder="Email address" required autofocus>
+    <label for="inputEmail" class="sr-only">Email</label>
+    <input type="email" name="id" id="inputEmail" class="form-control" placeholder="Email address" value="<%= id%>" required autofocus>
     
-    <label for="inputPassword" class="sr-only">Password</label>
-    <input type="password" name="pwd" id="inputPassword" class="form-control" placeholder="Password" required>
+    <label for="inputPassword" class="sr-only">PassWord</label>
+    <input type="password" name="pwd" id="inputPassword" class="form-control" placeholder="Password" value="<%= pwd%>" required>
 	
 	<label for="inputName" class="sr-only">Name</label>
-    <input type="text" name="name" id="inputName" class="form-control" placeholder="Name" required>
+    <input type="text" name="name" id="inputName" class="form-control" placeholder="Name" value="<%= name%>" required>
 	
-	<label for="inputNickName" class="sr-only">Nick Name</label>
-    <input type="text" name="nickname" id="inputNickName" class="form-control" placeholder="Nickname" required>
+	<label for="inputNickName" class="sr-only">NickName</label>
+    <input type="text" name="nickname" id="inputNickName" class="form-control" placeholder="Nickname" value="<%= nickname%>" required>
     <br>
-    <button class="btn btn-lg btn-primary btn-block" type="submit">Sign up</button>
+    <button class="btn btn-lg btn-primary btn-block" type="submit" >Sign up</button>
   </form>
 </div>
 
@@ -39,12 +45,12 @@
 
 <script>
 	<%-- 회원 가입이 실패한 경우 처리 추가 --%>
-	<%--
+	<%  if("error".equals(request.getAttribute("msg"))) { %>
 		var myModal = $('#myModal');
-		myModal.find('.modal-title').text('Sign Up Error');
-		myModal.find('.modal-body').text('회원 가입 시 오류가 발생하였습니다.');
+		myModal.find('.modal-title').text('Login Error');
+		myModal.find('.modal-body').text('Invalid username or password');
 		myModal.modal();
-	--%>
+	<% } %>
 </script>
 
 </body>
